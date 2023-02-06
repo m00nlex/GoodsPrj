@@ -14,9 +14,9 @@ app.get('/', (req, res) => {
     res.send('Hello Aliya!');
 })
 
-app.get('/que', (req, res) => {
-    res.send('what is ur que?');
-})
+app.get('/que', function(req, res) {
+    res.sendfile('index.html');
+});
 
 app.listen(PORT, () => {
     console.log(`..SERVER STARTED on port ${PORT}!..`)
