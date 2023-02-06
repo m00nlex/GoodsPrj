@@ -1,8 +1,9 @@
 const express = require('express');
 // const pg = require('pg');
+const config = require('config');
 
-// const PORT = process.env.PORT || 3000;
-const PORT = 5000;
+
+const PORT = config.get('server.PORT');
 
 // const {Router} = require('express');
 // const router = Router();
