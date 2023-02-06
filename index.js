@@ -2,7 +2,7 @@ const express = require('express');
 // const pg = require('pg');
 
 // const PORT = process.env.PORT || 3000;
-const PORT = 80;
+const PORT = 5000;
 
 // const {Router} = require('express');
 // const router = Router();
