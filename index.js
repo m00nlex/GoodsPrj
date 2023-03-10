@@ -1,24 +1,14 @@
 const express = require('express');
-// const pg = require('pg');
+const pg = require('pg');
 const config = require('config');
+const userRouter = require('./routes/user.routes')
 
 
 const PORT = config.get('server.PORT');
 
-// const {Router} = require('express');
-// const router = Router();
-
-
-
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Hello Aliya!');
-})
-
-app.get('/que', function(req, res) {
-    res.sendfile('index.html');
-});
+app.use('/api', userRouter);
 
 app.listen(PORT, () => {
     console.log(`..SERVER STARTED on port ${PORT}!..`)

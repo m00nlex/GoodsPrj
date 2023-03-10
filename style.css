@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.flex_parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    background-color: black;
+    flex-direction: column;
+}
+
+#tagcloud{
+    height: 120px;
+    width: 90%;
+    background-color: aliceblue;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+.tag{
+    background-color: black;
+    color: aliceblue;
+    padding: 10px;
+    margin: 0 20px;
+}
+
+#tagInput{
+    width: 200px;
+    height: 19px;
+    border: none;
+    border-bottom: 2px gray groove;
+    background-color: aliceblue;
+}
+#submit_plus{
+    width: 20px;
+    height: 19px;
+    background-color: aliceblue;
+    border: none;
+    border-bottom: 2px gray groove;
+}

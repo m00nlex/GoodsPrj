@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: black">
-
-    <span style="color: aliceblue">ADD a new tag:</span>
-
-    <form action="" method="get" class="form-example">
-        <div class="form-example">
-            <input type="text" name="tag" id="tag" required>
-        </div>
-        <div class="form-example">
-            <input type="submit" value="+">
-        </div>
-    </form>
-
-    <div id="taglist" style="color: aliceblue">
+<body class="flex_parent">
+    <div class="flex_parent" id="tagcloud">
 
     </div>
+    <span style="color: aliceblue">Add a new tag:</span>
+    <form action="" onsubmit="return false;">
+        <input type="text" name="tagInput" id="tagInput">
+        <input type="submit" name="submit_plus" id="submit_plus" value="+" onclick="tagBuildOne(document.getElementById('tagInput').value)">
+    </form>
+    <script src="tempJs.js"></script>
 </body>
 </html>
