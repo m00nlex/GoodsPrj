@@ -7,4 +7,4 @@ const pool = new Pool({
     database: 'TAGS'
 });
 
-module.exports = pool();
+module.exports = pool;

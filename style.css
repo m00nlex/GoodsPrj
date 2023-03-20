@@ -42,3 +42,13 @@ body{
     border: none;
     border-bottom: 2px gray groove;
 }
+
+/* Кастом выделение на странице */
+::selection {
+    color: black;
+    background: aliceblue; /* Safari */
+}
+::-moz-selection {
+    color: black;
+    background: aliceblue; /* Firefox */
+}

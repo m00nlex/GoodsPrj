@@ -1,5 +1,5 @@
 let tagHolder = document.getElementById('tagcloud');
-function tagBuilder(){
+function tagBuilder(){ // рендер того, что уже должно быть на странице
     let tags = ['Sun', 'Moon', 'Jupiter', 'Jaba'];
 
     for (const tagsKey in tags) {
@@ -13,7 +13,7 @@ function tagBuilder(){
 tagBuilder();
 console.log('DONE')
 
-function tagBuildOne(text){
+function tagBuildOne(text){ // добавление новых тегов
     let newTag = document.createElement('div');
     newTag.innerHTML = text;
     newTag.classList.add('tag');
