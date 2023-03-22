@@ -1,16 +1,18 @@
 const express = require('express');
 const pg = require('pg');
-const userRouter = require('./routes/user.routes')
-require('dotenv').config()
-const sequelize = require('./db/db')
+const index_router = require('./routes/index_routes.js')
+require('dotenv').config();
+const sequelize = require('./db/db.js')
 const path = require('path');
 const models = require('./models/models.js')
-const PORT = process.env.PORT || 5000;
+const cors = require('cors')
 
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(express.json())
-app.use('/api', userRouter)
+app.use(cors())
+app.use(express.json()) //чтобы приложение могло парсить json
+app.use('/api', index_router)
 const start = async () => {
     try {
         await sequelize.authenticate()
