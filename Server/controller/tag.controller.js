@@ -1,9 +1,10 @@
 const db = require('../db/db.js')
-
+const {Tag} = require('../models/models.js')
+const ApiError = require('../err/ApiError.js')
 class TagController{
     async getTags(req, res){
-        const tags = await db.query(`SELECT * FROM tags`)
-        res.json(tags.rows)
+        const tags = await Tag.findAll()
+        res.json(tags.name)
     }
     async getOneTag(req, res){
         const id = req.params.id
@@ -11,9 +12,10 @@ class TagController{
         res.json(tag.rows[0])
     }
     async createTag(req, res){
-        const {name} = req.body
-        const newTag = await db.query(`INSERT INTO tags (name) VALUES ($1) RETURNING *`, [name])
-        res.json(newTag.rows)
+        const {name} = req.body // = { "name" : "mun" }
+        console.log(req.body)
+        const newTag = await Tag.create({name})
+        return res.json(newTag)
     }
     async updateTag(req, res){
         const {id, name} = req.body
