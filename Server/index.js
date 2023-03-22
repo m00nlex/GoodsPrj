@@ -1,19 +1,26 @@
 const express = require('express');
 const pg = require('pg');
-const config = require('config');
 const userRouter = require('./routes/user.routes')
+require('dotenv').config()
+const sequelize = require('./db/db')
 const path = require('path');
-const PORT = config.get('server.PORT');
+const models = require('./models/models.js')
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
 app.use(express.json())
 app.use('/api', userRouter)
-app.use('/css', express.static(__dirname + 'public/css'))
-app.get('/',(req,res) => {
-    res.render('index', { text: 'Hey' })
-})
+const start = async () => {
+    try {
+        await sequelize.authenticate()
+        await sequelize.sync()
+        app.listen(PORT, () => {
+            console.log(`..SERVER STARTED on port ${PORT}!..`)
+        })
+    } catch (e){
+        console.log(e)
+    }
+}
 
-app.listen(PORT, () => {
-    console.log(`..SERVER STARTED on port ${PORT}!..`)
-})
+start()
