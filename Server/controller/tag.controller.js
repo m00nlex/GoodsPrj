@@ -4,7 +4,7 @@ const ApiError = require('../err/ApiError.js')
 class TagController{
     async getTags(req, res){
         const tags = await Tag.findAll()
-        res.json(tags.name)
+        res.json(tags.map( tag => {return tag.name}))
     }
     async getOneTag(req, res){
         const id = req.params.id
